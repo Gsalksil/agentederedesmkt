@@ -7,7 +7,7 @@ Agora o projeto está em modo **Vercel-first** para você controlar tudo por end
 - `phase1_collector.py`: núcleo da coleta (YouTube, X, Instagram) + persistência.
 - `api/collect.py`: endpoint serverless para coletar métricas.
 - `api/report.py`: endpoint serverless para consultar top posts.
-- `vercel.json`: runtime Python + cron automático a cada 6 horas.
+- `vercel.json`: runtime Python + cron diário (compatível com plano Hobby).
 
 ## 1) Rodar localmente
 
@@ -56,7 +56,14 @@ Exemplo:
 curl "https://SEU-PROJETO.vercel.app/api/report?limit=5"
 ```
 
-## 4) Deploy na Vercel (direto e simples)
+## 4) Cron na Vercel (Hobby x Pro)
+
+- **Hobby**: apenas cron diário (1x/dia).
+- **Pro**: pode usar cron múltiplas vezes por dia (ex.: a cada 6 horas).
+
+Neste repositório, o `vercel.json` está configurado para **diário**: `0 9 * * *`.
+
+## 5) Deploy na Vercel (direto e simples)
 
 1. Suba este repo no GitHub.
 2. Na Vercel: **New Project** → importe o repositório.
@@ -64,13 +71,13 @@ curl "https://SEU-PROJETO.vercel.app/api/report?limit=5"
 4. Faça deploy.
 5. Teste `/api/collect` e `/api/report`.
 
-## 5) Observação importante sobre banco na Vercel
+## 6) Observação importante sobre banco na Vercel
 
 `SQLite` em serverless é útil para testes, mas não é persistência ideal em produção.
 Para produção real, próximo passo recomendado é trocar para um banco gerenciado (Postgres/Supabase/Turso).
 
 
-## 6) "Destravar" Git local para facilitar controle por aqui
+## 7) "Destravar" Git local para facilitar controle por aqui
 
 Se o seu ambiente estiver com hooks/regras locais atrapalhando commits, você pode usar estas opções no seu terminal:
 
