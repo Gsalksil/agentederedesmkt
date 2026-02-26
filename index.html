@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Metrics Agent — Fase 1</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #0b1020;
+        color: #e7ecff;
+      }
+      .card {
+        width: min(760px, 92vw);
+        background: #121933;
+        border: 1px solid #2a3568;
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      }
+      h1 { margin-top: 0; font-size: 1.5rem; }
+      p { line-height: 1.5; }
+      code {
+        background: #1c2750;
+        border: 1px solid #324280;
+        border-radius: 6px;
+        padding: 2px 6px;
+      }
+      ul { margin-bottom: 1.2rem; }
+      a {
+        color: #8ab4ff;
+        text-decoration: none;
+      }
+      a:hover { text-decoration: underline; }
+      .muted { opacity: 0.82; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>✅ Deploy ativo — Social Metrics Agent (Fase 1)</h1>
+      <p>
+        Se você está vendo esta página, o <strong>front</strong> está online e não deve mais retornar 404 na raiz.
+      </p>
+
+      <p>Endpoints disponíveis:</p>
+      <ul>
+        <li><a href="/api/report" target="_blank" rel="noreferrer">GET /api/report</a> — retorna top posts por plataforma.</li>
+        <li><code>GET /api/collect</code> — executa coleta (recomendado com header <code>Authorization: Bearer CRON_SECRET</code>).</li>
+      </ul>
+
+      <p class="muted">
+        Dica rápida: após configurar variáveis na Vercel, teste <code>/api/report?limit=5</code> e depois
+        faça uma chamada autenticada em <code>/api/collect?max_posts=10</code>.
+      </p>
+    </main>
+  </body>
+</html>

@@ -2,6 +2,11 @@
 
 Agora o projeto está em modo **Vercel-first** para você controlar tudo por endpoints.
 
+## 0) Verificar se o front subiu (evitar 404)
+
+A raiz `/` agora serve um `index.html` estático.
+Se o deploy estiver correto, abrir o domínio principal da Vercel deve mostrar a página de status do projeto (não 404).
+
 ## O que foi implementado
 
 - `phase1_collector.py`: núcleo da coleta (YouTube, X, Instagram) + persistência.
